@@ -12,9 +12,9 @@
 
     <nav>
         <a href="/">Home</a>
-        <a href="#">item 2</a>
-        <a href="#">item 3</a>
-        <a href="#">item 4</a>
+        <a href="/games">Games</a>
+        <a href="/users">Users</a>
+        <a href="/publishers">Publishers</a>
     </nav>
 
     <main>
@@ -22,7 +22,7 @@
     </main>
     
     <footer>
-        &copy; <?= date('Y'); ?> - BrandName
+        &copy; <?= date('Y'); ?> - Backoffice
     </footer>
 </body>
 </html>

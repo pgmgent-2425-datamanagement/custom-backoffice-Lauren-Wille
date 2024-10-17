@@ -6,8 +6,14 @@ use App\Models\Game;
 
 class GameController extends BaseController {
 
-    public static function all ($id) {
+    public static function all () {
         $games = Game::all();
+
+        
+        self::loadView('/games', [
+            'title' => 'Games',
+            'games' => $games
+        ]);
 
     }
 

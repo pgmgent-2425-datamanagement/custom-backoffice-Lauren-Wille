@@ -1,6 +1,8 @@
-<h1>Base MVC</h1>
-<p>Welcome to this base mvc project.</p>
+<h1>Backoffice</h1>
+<p>Welcome to this backoffice project.</p>
 
+
+<!-- code for displaying data
 <?php 
 foreach($users as $user){
     include 'users/item.php';

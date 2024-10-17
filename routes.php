@@ -9,6 +9,7 @@ $router->get('/user/edit/(\d+)', 'UserController@edit');
 $router->get('/user/delete/(\d+)', 'UserController@delete');
 
 //games
+$router->get('/games', 'GameController@all');
 $router->get('/game/(\d+)', 'GameController@detail');
 
 //publishers

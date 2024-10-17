@@ -1,10 +1,10 @@
-
-<p><?= $game->image;?></p>
-<p><?= $game->title;?></p>
-<p><?= $game->release_date;?></p>
-<p><?= $game->price;?></p>
-<p><?= $game->developer;?></p>
-<p><?= $game->summary;?></p>  
-<p><?= $game->average_rating;?></p>
-
-<h2>Reviews</h2>
+<tr>
+    <td></td>
+    <td><?= $game->title;?></td>
+    <td><?= $game->release_date;?></td>
+    <td><?= $game->price;?></td>
+    <td><?= $game->developer;?></td>
+    <td><?= $game->summary;?></td>
+    <td><?= $game->average_rating;?></td>
+    <td><?= $game->publisher_id;?></td>
+</tr>
