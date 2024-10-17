@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\User;
 use App\Models\Game;
+use App\Models\Publisher;
 
 class HomeController extends BaseController {
 
@@ -11,6 +12,7 @@ class HomeController extends BaseController {
 
         $users = User::all();
         $games = Game::all();
+        $publishers = Publisher::all();
 
 
         //print_r($users);
@@ -18,7 +20,8 @@ class HomeController extends BaseController {
         self::loadView('/home', [
             'title' => 'Homepage',
             'users' => $users,
-            'games'=>$games
+            'games'=>$games,
+            'publishers'=>$publishers
         ]);
     }
 

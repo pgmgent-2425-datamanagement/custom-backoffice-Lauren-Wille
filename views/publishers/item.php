@@ -1,0 +1,1 @@
+<a href="/publisher/<?=$publisher->id?>"><?=$publisher->name?></a>
