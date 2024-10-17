@@ -20,9 +20,25 @@ class GameController extends BaseController {
     }
 
     public static function edit ($id) {
-        print_r($id);
-
         $game = Game::find($id);
+        $publishers = Publisher::all();
+
+        if(isset($_POST['title'])) {
+            $game->title = $_POST['title'];
+            $game->release_date = $_POST['release_date'];
+            $game->price = $_POST['price'];
+            $game->developer = $_POST['developer'];
+            $game->summary = $_POST['summary'];
+            $game->publisher_id = $_POST['publisher_id'];
+            $game->save();
+        }
+
+        //load view
+        self::loadView('/games/edit', [
+            'title' => 'Edit game',
+            'game' => $game,
+            'publishers' => $publishers
+        ]);
 
     }
 
