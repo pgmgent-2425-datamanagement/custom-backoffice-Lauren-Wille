@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Game;
 use App\Models\Publisher;
-use PDO;
 
 class GameController extends BaseController {
 
@@ -42,11 +41,21 @@ class GameController extends BaseController {
 
     }
 
-    public static function delete ($id) {
-        print_r($id);
-
+    public static function delete($id)
+    {
+        $id = intval($id); // Convert to integer
+        
+        // Find the game by ID, handle cases where the game doesn't exist
         $game = Game::find($id);
 
+        if ($game) {
+            // Call the delete method to delete the game
+            $game->delete();
+        }
+
+        // Redirect back to the games page after deletion
+        header('Location: /games');
+        exit();
     }
 
     public static function detail ($id) {

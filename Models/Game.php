@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\BaseModel;
 
 class Game extends BaseModel {
+
     protected function allWithPublisher () {
 
         $sql = 'SELECT games.id AS game_id,
@@ -28,7 +29,6 @@ class Game extends BaseModel {
     }
 
     public function save() {
-
         $sql = "UPDATE games SET title = :title, release_date = :release_date, 
         price = :price, developer = :developer, 
         summary = :summary, publisher_id = :publisher_id WHERE id = :id";

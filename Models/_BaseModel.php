@@ -95,7 +95,7 @@ class BaseModel {
 
     //public method to call like: $my_model->delete();
     public function delete () {
-        $this->deleteById( $this->pk );
+        $this->deleteById( (int) $this->pk );
     }
 
     private function getClassName($classname) {
