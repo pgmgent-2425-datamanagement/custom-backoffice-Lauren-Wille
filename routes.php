@@ -5,6 +5,7 @@ $router->setNamespace('\App\Controllers');
 $router->get('/', 'HomeController@index');
 
 //users
+$router->get('/users', 'UserController@all');
 $router->get('/user/edit/(\d+)', 'UserController@edit');
 $router->get('/user/delete/(\d+)', 'UserController@delete');
 
@@ -14,7 +15,7 @@ $router->get('/games/edit/(\d+)', 'GameController@edit');
 $router->post('/games/edit/(\d+)', 'GameController@edit');
 
 //$router->post('/games/delete/(\d+)', 'GameController@delete');
-$router->post('/games/delete/(\d+)', 'GameController@delete');
+$router->get('/games/delete/(\d+)', 'GameController@delete');
 
 //publishers
 $router->get('/publisher/(\d+)', 'PublisherController@detail');

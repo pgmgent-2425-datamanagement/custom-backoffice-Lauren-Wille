@@ -9,9 +9,6 @@
     <td><?= $game->name; ?></td>
     <td>
         <a href=<?= "/games/edit/" . $game->game_id?>>edit</a>
-        <form method="POST" onsubmit="return confirm('Are you sure you want to delete this game?');" style="display:inline;">
-            <input type="hidden" name="id" value="<?= htmlspecialchars($game->game_id); ?>">
-            <input type="submit" value="delete">
-        </form>
+        <a href=<?= "/games/delete/" . $game->game_id?>>delete</a>
     </td>
 </tr>

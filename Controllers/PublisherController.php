@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\Publisher;
+use Publisher;
 
 class PublisherController extends BaseController {
 

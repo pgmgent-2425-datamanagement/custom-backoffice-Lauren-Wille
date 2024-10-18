@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\Game;
-use App\Models\Publisher;
+use Game;
+use Publisher;
 
 class GameController extends BaseController {
 
@@ -43,19 +43,9 @@ class GameController extends BaseController {
 
     public static function delete($id)
     {
-        $id = intval($id); // Convert to integer
-        
-        // Find the game by ID, handle cases where the game doesn't exist
-        $game = Game::find($id);
-
-        if ($game) {
-            // Call the delete method to delete the game
-            $game->delete();
-        }
-
-        // Redirect back to the games page after deletion
-        header('Location: /games');
-        exit();
+        $game = Game::deleteById($id);
+        self::redirect('/games');
+        //header('Location: /games');
     }
 
     public static function detail ($id) {

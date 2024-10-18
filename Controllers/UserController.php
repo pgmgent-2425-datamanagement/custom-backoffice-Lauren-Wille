@@ -6,12 +6,16 @@ use App\Models\User;
 
 class UserController extends BaseController {
 
-    public static function all ($id) {
+    public static function all () {
         $users = User::all();
 
-        //print_r($user);
-    }
+        
+        self::loadView('/users', [
+            'title' => 'Users',
+            'games' => $users,
+        ]);
 
+    }
     public static function edit ($id) {
         print_r($id);
 
