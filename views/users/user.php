@@ -1,10 +1,10 @@
 <tr>
-    <td><img src="/images/<?= $game->image;?>" alt="<?= ""?>"></td>
+    <td><img src="/images/<?= $user->profile_picture;?>" alt="<?= $user ->username?>"></td>
+    <td><?= $user-> username;?></td>
+    <td><?= $user-> email;?></td>
+    <td><?= $user-> bio;?></td>
     <td>
-        <a href=<?= "/games/edit/" . "" ?>>edit</a>
-        <form method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');" style="display:inline;">
-            <input type="hidden" name="id" value="<?= htmlspecialchars($game->game_id); ?>">
-            <input type="submit" value="delete">
-        </form>
+        <a href=<?= "/users/edit/" . $user->id; ?>>edit</a>
+        <a href=<?= "/users/delete/" . $user->id?>>delete</a>
     </td>
 </tr>

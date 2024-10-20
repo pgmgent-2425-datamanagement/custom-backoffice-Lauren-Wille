@@ -1,5 +1,22 @@
 <table>
     <tr>
+
+        <th>
+            
+        </th>
+
+        <th>
+            username
+        </th>
+
+        <th>
+            email
+        </th>
+
+        <th>
+            bio
+        </th>
+
         <th></th>
 
     </tr>

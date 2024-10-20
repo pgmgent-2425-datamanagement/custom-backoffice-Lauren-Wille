@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\User as User;
+use User;
 
 class UserController extends BaseController {
 
@@ -15,20 +15,38 @@ class UserController extends BaseController {
         ]);
 
     }
+
     public static function edit ($id) {
-        print_r($id);
-
         $user = User::find($id);
 
-        //print_r($user);
+        if(isset($_POST['bio'])) {
+            $user->username = $_POST['username'];
+            $user->email = $_POST['email'];
+            $user->password = $_POST['password'];
+            $user->bio = $_POST['bio'];
+            $user->save();
+        }
+
+        //load view
+        self::loadView('/users/edit', [
+            'title' => 'Edit user',
+            'user' => $user,
+        ]);
     }
 
-    public static function delete ($id) {
-        print_r($id);
+    public static function delete($id)
+    {
+        $user = User::deleteById($id);
+/* 
+        $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/images/' . $user->profile_picture;
 
-        $user = User::find($id);
+            // Check if the image exists and delete it from the folder
+            if (file_exists($imagePath)) {
+                unlink($imagePath);  // This deletes the image file
+            } */
 
-        //print_r($user);
+            self::redirect('/users');
     }
+
 
 } 
