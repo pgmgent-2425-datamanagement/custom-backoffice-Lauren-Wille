@@ -1,5 +1,5 @@
 <tr>
-    <td><img src="/images/<?= $game->image;?>" alt="<?= $game->title;?>"></td>
+    <td><img class="img-thumbnail img-circle  img-me" src="/images/<?= $game->image;?>" alt="<?= $game->title;?>"></td>
     <td><?= $game->title;?></td>
     <td><?= $game->release_date;?></td>
     <td><?= $game->price;?></td>

@@ -12354,7 +12354,7 @@ fieldset:disabled .btn {
 /*# sourceMappingURL=main.css.map */
 
 body {
-  max-width: 1000px;
+  max-width: 1166px;
   margin: 0 auto;
   padding: 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -12363,4 +12363,28 @@ body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* own css added */
+.img-circle
+{
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.img-sm 
+{
+  width: 100px;
+}
+
+.img-me 
+{
+  width: 500px;
+}
+
+.img-la
+{
+  width: 250px;
 }
