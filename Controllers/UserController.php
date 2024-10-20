@@ -2,17 +2,16 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
+use App\Models\User as User;
 
 class UserController extends BaseController {
 
     public static function all () {
         $users = User::all();
 
-        
         self::loadView('/users', [
             'title' => 'Users',
-            'games' => $users,
+            'users' => $users,
         ]);
 
     }

@@ -38,14 +38,12 @@ class GameController extends BaseController {
             'game' => $game,
             'publishers' => $publishers
         ]);
-
     }
 
     public static function delete($id)
     {
         $game = Game::deleteById($id);
         self::redirect('/games');
-        //header('Location: /games');
     }
 
     public static function detail ($id) {
