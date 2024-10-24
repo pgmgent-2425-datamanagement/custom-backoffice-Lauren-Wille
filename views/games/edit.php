@@ -27,6 +27,7 @@
      <div class="mb-3">
         <label for="publisher" class="form-label">Publisher</label>
         <select name="publisher_id" id="publisher_id">
+            <option value="">-- Select Publisher --</option>
             <?php foreach ($publishers as $publisher) :
                 $is_selected = '';
                 if ($publisher->id == $game->publisher_id)

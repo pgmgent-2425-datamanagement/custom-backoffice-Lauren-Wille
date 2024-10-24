@@ -22,13 +22,19 @@ class GameController extends BaseController {
         $game = Game::find($id);
         $publishers = Publisher::all();
 
+        $publisher_id = $_POST['publisher_id'];
+
         if(isset($_POST['title'])) {
             $game->title = $_POST['title'];
             $game->release_date = $_POST['release_date'];
             $game->price = $_POST['price'];
             $game->developer = $_POST['developer'];
             $game->summary = $_POST['summary'];
-            $game->publisher_id = $_POST['publisher_id'];
+            
+            // Handle missing publisher
+            $publisher_id = $_POST['publisher_id'] ?? 1;
+            $game->publisher_id = !empty($publisher_id) ? $publisher_id : 1;
+
             $game->save();
         }
 
@@ -46,17 +52,5 @@ class GameController extends BaseController {
         self::redirect('/games');
     }
 
-    public static function detail ($id) {
-        //print_r($id);
-
-        $game = Game::find($id);
-        $gameTitle = $game->title;
-
-
-        self::loadView('/games/game', [
-            'title' => $gameTitle,
-            'game' => $game,
-        ]);
-    }
 
 } 
