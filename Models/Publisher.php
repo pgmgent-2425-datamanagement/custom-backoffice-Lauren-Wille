@@ -17,5 +17,14 @@ class Publisher extends BaseModel{
         return self::castToModel($results);
     }
 
-    
+    public function save() {
+        $sql = "UPDATE publishers SET name = :name, about = :about WHERE id = :id";
+
+        $pdo_statement = $this->db->prepare($sql);
+        $pdo_statement->execute([
+            ':name' => $this->name,
+            ':about' => $this->about,
+            ':id' => $this->id,
+        ]);         
+    }
 }

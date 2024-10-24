@@ -16,11 +16,13 @@ class PublisherController extends BaseController {
     }
 
     public static function edit ($id) {
+        
         $publisher = Publisher::find($id);
 
-        if(isset($_POST['title'])) {
+        if(isset($_POST['name'])) {
+            print_r($_POST);
             $publisher->name = $_POST['name'];
-            $publisher->release_date = $_POST['about'];
+            $publisher->about = $_POST['about'];
             $publisher->save();
         }
 
@@ -30,7 +32,7 @@ class PublisherController extends BaseController {
             'publisher' => $publisher,
         ]);
     }
-
+ 
     public static function delete($id)
     {
         $publisher = Publisher::deleteById($id);
