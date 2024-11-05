@@ -7,7 +7,7 @@ use Publisher;
 class PublisherController extends BaseController {
 
     public static function all () {
-        $publishers = Publisher::allExceptFirst();
+        $publishers = Publisher::all();
 
         self::loadView('/publishers', [
             'title' => 'Publishers', 

@@ -5,7 +5,7 @@ use App\Models\BaseModel;
 
 class Publisher extends BaseModel{
 
-    protected function allExceptFirst () {
+    public function allExceptFirst () {
 
         global $db;
 

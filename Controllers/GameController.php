@@ -35,7 +35,7 @@ class GameController extends BaseController {
             $publisher_id = $_POST['publisher_id'] ?? 1;
             $game->publisher_id = !empty($publisher_id) ? $publisher_id : 1;
 
-            $game->save();
+            $game->update();
         }
 
         //load view
@@ -52,5 +52,50 @@ class GameController extends BaseController {
         self::redirect('/games');
     }
 
+    public static function add () {
 
+        $publishers = Publisher::all();
+
+        //load view
+        self::loadView('/games/add', [
+            'title' => 'Add game',
+            'publishers' => $publishers
+        ]);
+    }
+
+    public static function save() {
+        $game = new Game();
+
+        $name = $_FILES['image']['name'];
+        $tmp = $_FILES['image']['tmp_name'];
+
+        $to_folder = BASE_DIR . "/public/images/";
+
+        $uuid = uniqid() . '-' . $name;
+
+        move_uploaded_file($tmp, $to_folder . $uuid);
+     
+        $game->image = $uuid;
+        $game->title = $_POST['title'];
+        $game->release_date = $_POST['release_date'];
+        $game->price = $_POST['price'];
+        $game->developer = $_POST['developer'];
+        $game->summary = $_POST['summary'];
+        $game->average_rating = $_POST['average_rating'];
+        
+        // Handle missing publisher
+        $publisher_id = $_POST['publisher_id'] ?? 1;
+        $game->publisher_id = !empty($publisher_id) ? $publisher_id : 1;
+        $succes = $game->save();
+
+
+
+        if($succes){
+            self::redirect('/games'); 
+        }
+        else {
+            echo 'fout';
+        }
+
+    }
 } 
