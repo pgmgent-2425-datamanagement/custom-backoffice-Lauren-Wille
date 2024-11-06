@@ -1,4 +1,10 @@
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-3 flex-sm-column d-lg-flex">
+        <label for="image" class="form-label">Image</label>
+        <img class="img-me" src="/images/<?= $game->image?>" alt="">
+        <input type="file" class="form-control" id="image" name="image">
+    </div>
+
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title" value="<?= $game->title; ?>">

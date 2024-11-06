@@ -22,9 +22,27 @@ class GameController extends BaseController {
         $game = Game::find($id);
         $publishers = Publisher::all();
 
-        $publisher_id = $_POST['publisher_id'];
+        if(isset($_FILES["image"]))
+        {
+            $name = $_FILES['image']['name'];
+            $tmp = $_FILES['image']['tmp_name'];
+            $to_folder = BASE_DIR . "/public/images/";
+
+            $uuid = uniqid() . '-' . $name;
+
+            if (move_uploaded_file($tmp, $to_folder . $uuid)) {
+                $game->image = $uuid;
+            }
+                 
+        }
+
 
         if(isset($_POST['title'])) {
+            if(isset($uuid))
+                {
+                    $game->image = $uuid;
+                }
+           
             $game->title = $_POST['title'];
             $game->release_date = $_POST['release_date'];
             $game->price = $_POST['price'];

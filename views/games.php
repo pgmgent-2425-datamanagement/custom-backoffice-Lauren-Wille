@@ -2,7 +2,6 @@
     <input type="submit" value="Add game" class="btn btn-primary">
 </form>
 
-<a href="/games/add">Add game</a>
 
 <table>
     <tr>

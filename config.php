@@ -1,6 +1,8 @@
 <?php
 CONST BASE_DIR = __DIR__;
 
+
+
 $config = [
     'base_dir' => __DIR__,
     'base_url' => $_ENV['BASE_URL'] ?? '/',
@@ -10,4 +12,5 @@ $config = [
     'db_database' => $_ENV['DB_DATABASE'],
     'db_username' => $_ENV['DB_USERNAME'],
     'db_password' => $_ENV['DB_PASSWORD'],
+    
 ];
