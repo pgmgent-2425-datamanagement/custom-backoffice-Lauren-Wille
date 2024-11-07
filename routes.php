@@ -9,6 +9,8 @@ $router->get('/users', 'UserController@all');
 $router->get('/users/edit/(\d+)', 'UserController@edit');
 $router->post('/users/edit/(\d+)', 'UserController@edit');
 $router->get('/users/delete/(\d+)', 'UserController@delete');
+$router->get('/users/add', 'UserController@add');
+$router->post('/users/add', 'UserController@save');
 
 //games
 $router->get('/games', 'GameController@all');

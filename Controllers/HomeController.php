@@ -11,9 +11,13 @@ class HomeController extends BaseController {
         $publisher = new Publisher();
         $publishersWithGames = $publisher->countGamesPerPublisher();
 
+        $game = new Game();
+        $gamesByMonth = $game->gamesEachMonth();
+
         self::loadView('/home', [
             'title' => 'Homepage',
-            'publishersWithGames' => $publishersWithGames
+            'publishersWithGames' => $publishersWithGames,
+            'gamesByMonth' => $gamesByMonth
         ]);
     }
 

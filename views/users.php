@@ -1,3 +1,7 @@
+<form action="/users/add">
+    <input type="submit" value="Add user" class="btn btn-primary">
+</form>
+
 <table>
     <tr>
 

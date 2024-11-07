@@ -75,4 +75,22 @@ class Game extends BaseModel {
         
         return self::castToModel($results);
     }
+
+    public function gamesEachMonth() {
+        global $db;
+
+        $sql = "
+        SELECT DATE_FORMAT(release_date, '%Y-%m') AS month, COUNT(*) AS releases
+        FROM games
+        WHERE release_date IS NOT NULL
+        GROUP BY month
+        ORDER BY month";
+        
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    
+        return self::castToModel($results);
+    }
 }

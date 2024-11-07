@@ -24,7 +24,7 @@ class UserController extends BaseController {
             $user->email = $_POST['email'];
             $user->password = $_POST['password'];
             $user->bio = $_POST['bio'];
-            $user->save();
+            $user->update();
         }
 
         //load view
@@ -37,16 +37,45 @@ class UserController extends BaseController {
     public static function delete($id)
     {
         $user = User::deleteById($id);
-/* 
-        $imagePath = $_SERVER['DOCUMENT_ROOT'] . '/images/' . $user->profile_picture;
-
-            // Check if the image exists and delete it from the folder
-            if (file_exists($imagePath)) {
-                unlink($imagePath);  // This deletes the image file
-            } */
-
-            self::redirect('/users');
+        self::redirect('/users');
     }
 
 
+    public static function add () {
+
+        //load view
+        self::loadView('/users/add', [
+            'title' => 'Add user'
+        ]);
+    }
+
+     public static function save() {
+        $user = new User();
+
+        $name = $_FILES['image']['name'];
+        $tmp = $_FILES['image']['tmp_name'];
+
+        $to_folder = BASE_DIR . "/public/images/profile-pictures/";
+
+        $uuid = uniqid() . '-' . $name;
+
+        move_uploaded_file($tmp, $to_folder . $uuid);
+     
+        $user -> profile_picture = $uuid;
+        $user -> username = $_POST['username'];
+        $user -> email = $_POST['email'];
+        $user -> password = $_POST['password'];
+        $user -> bio = $_POST['bio'];
+        
+        $succes = $user->save();
+
+
+        if($succes){
+            self::redirect('/users'); 
+        }
+        else {
+            echo 'fout';
+        }
+
+    } 
 } 
