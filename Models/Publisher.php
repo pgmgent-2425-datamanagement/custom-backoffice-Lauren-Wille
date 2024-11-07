@@ -27,4 +27,20 @@ class Publisher extends BaseModel{
             ':id' => $this->id,
         ]);         
     }
+
+    public function countGamesPerPublisher() {
+        global $db;
+
+        $sql = "SELECT publishers.id, publishers.name, COUNT(games.id) AS game_count
+        FROM publishers
+        LEFT JOIN games ON publishers.id = games.publisher_id
+        GROUP BY publishers.id, publishers.name
+        ";
+
+        $pdo_statement= $db->prepare($sql);
+        $pdo_statement->execute();
+        $results = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        
+        return self::castToModel($results);
+    }
 }
