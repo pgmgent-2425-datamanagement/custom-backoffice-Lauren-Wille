@@ -1,4 +1,11 @@
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
+    
+    <div class="mb-3 flex-sm-column d-lg-flex">
+        <label for="profile_picture" class="form-label">Profile picture</label>
+        <img class="img-me" src="/images/profile-pictures/<?= $user->profile_picture?>" alt="<?= $user->username?>">
+        <input type="file" class="form-control" id="profile_picture" name="profile_picture">
+    </div>
+
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input type="text" class="form-control" id="username" name="username" value="<?= $user->username; ?>">

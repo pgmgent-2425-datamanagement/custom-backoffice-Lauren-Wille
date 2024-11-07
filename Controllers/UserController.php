@@ -19,7 +19,25 @@ class UserController extends BaseController {
     public static function edit ($id) {
         $user = User::find($id);
 
+        if(isset($_FILES["profile_picture"]))
+        {
+            $name = $_FILES['profile_picture']['name'];
+            $tmp = $_FILES['profile_picture']['tmp_name'];
+            $to_folder = BASE_DIR . "/public/images/profile-pictures/";
+
+            $uuid = uniqid() . '-' . $name;
+
+            if (move_uploaded_file($tmp, $to_folder . $uuid)) {
+                $user->profile_picture = $uuid;
+            }
+                 
+        }
+        
         if(isset($_POST['bio'])) {
+            if(isset($uuid))
+            {
+                $user->profile_picture = $uuid;
+            }
             $user->username = $_POST['username'];
             $user->email = $_POST['email'];
             $user->password = $_POST['password'];
@@ -27,11 +45,12 @@ class UserController extends BaseController {
             $user->update();
         }
 
+
         //load view
-        self::loadView('/users/edit', [
+         self::loadView('/users/edit', [
             'title' => 'Edit user',
             'user' => $user,
-        ]);
+        ]); 
     }
 
     public static function delete($id)

@@ -1,7 +1,7 @@
 <form method="POST" enctype="multipart/form-data">
     <div class="mb-3 flex-sm-column d-lg-flex">
         <label for="image" class="form-label">Image</label>
-        <img class="img-me" src="/images/<?= $game->image?>" alt="">
+        <img class="img-me" src="/images/<?= $game->image?>" alt="<?= $game->title?>">
         <input type="file" class="form-control" id="image" name="image">
     </div>
 

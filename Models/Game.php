@@ -30,10 +30,11 @@ class Game extends BaseModel {
     }
 
     public function update() {
-        $sql = "UPDATE games SET title = :title, release_date = :release_date, price = :price, developer = :developer, summary = :summary, publisher_id = :publisher_id WHERE id = :id";
+        $sql = "UPDATE games SET image = :image, title = :title, release_date = :release_date, price = :price, developer = :developer, summary = :summary, publisher_id = :publisher_id WHERE id = :id";
 
         $pdo_statement = $this->db->prepare($sql);
         $succes = $pdo_statement->execute([
+            ':image' => $this->image,
             ':title' => $this->title,
             ':release_date' => $this->release_date,
             ':price' => $this->price,
