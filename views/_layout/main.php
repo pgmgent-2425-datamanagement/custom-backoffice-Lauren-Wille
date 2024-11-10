@@ -15,6 +15,7 @@
         <a href="/games">Games</a>
         <a href="/users">Users</a>
         <a href="/publishers">Publishers</a>
+        <a href="/filemanager">Filemanager</a>
     </nav>
 
     <main>

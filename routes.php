@@ -28,7 +28,8 @@ $router->get('/publishers/delete/(\d+)', 'PublisherController@delete');
 $router->get('/publishers/add', 'PublisherController@add');
 $router->post('/publishers/add', 'PublisherController@save');
 
+//filemanager
+$router->get('/filemanager', 'FileManagerController@list');
+$router->get('/filemanager/(.*)', 'FileManagerController@list');
+$router->post('/filemanager/delete', 'FileManagerController@delete');
 
-/* $router->get('/test', function () {
-    echo 'test';
-}); */
