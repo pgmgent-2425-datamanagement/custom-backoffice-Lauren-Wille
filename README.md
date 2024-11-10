@@ -5,7 +5,9 @@ Indien je een publisher verwijderd, komt automatisch bij de gelinkte games 'publ
 
 Fotos editen en toevoegen kan je bij de games. 
 
-Er is ook een filemanager beschikbaar om files te verwijderen.
+Er is ook een filemanager beschikbaar om files te verwijderen. Als een foto wordt verwijderd, dan komt 'placeholder.jpeg' automatisch in de plaats.
+
+Daarnaast zijn er ook 2 grafieken op de home pagina: een grafiek dat het aantal games toont per publisher, en een grafiek dat het aantal releases per maand weergeeft.
 
 -------------------------------------------------------
 Lauren Wille
