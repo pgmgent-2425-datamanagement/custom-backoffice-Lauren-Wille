@@ -17,7 +17,9 @@
             email
         </th>
 
-        <th>
+        <th style="
+    width: 22rem;
+">
             bio
         </th>
 

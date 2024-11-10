@@ -6,7 +6,9 @@
     <tr>
         <th></th>
         <th>name</th>
-        <th>about</th>
+        <th style="
+    width: 22rem;
+">about</th>
     </tr>
     
     <?php foreach($publishers as $publisher){

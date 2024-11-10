@@ -21,8 +21,7 @@ class User extends BaseModel{
     }
 
     public function save() {
-        // Assuming you have a database connection set up
-        $sql = "INSERT INTO users (profile_picture, username, email, password, profile_picture, bio) VALUES (:profile_picture, :username, :email, :password, :profile_picture, :bio)";
+        $sql = "INSERT INTO users (profile_picture, username, email, password, bio) VALUES (:profile_picture, :username, :email, :password, :bio)";
     
     $pdo_statement = $this->db->prepare($sql);
     $succes= $pdo_statement->execute([
