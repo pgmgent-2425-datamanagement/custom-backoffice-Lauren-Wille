@@ -17,15 +17,32 @@ class Publisher extends BaseModel{
         return self::castToModel($results);
     }
 
-    public function save() {
-        $sql = "UPDATE publishers SET name = :name, about = :about WHERE id = :id";
+    public function update() {
+        $sql = "UPDATE publishers SET image = :image, name = :name, about = :about WHERE id = :id";
 
         $pdo_statement = $this->db->prepare($sql);
-        $pdo_statement->execute([
+        $succes = $pdo_statement->execute([
+            'image' => $this->image,
             ':name' => $this->name,
             ':about' => $this->about,
             ':id' => $this->id,
-        ]);         
+        ]);       
+        
+        return $succes;
+    }
+
+    public function save() {
+        // Assuming you have a database connection set up
+        $sql = "INSERT INTO publishers (image, name, about) VALUES (:image, :name, :about)";
+    
+        $pdo_statement = $this->db->prepare($sql);
+        $succes= $pdo_statement->execute([
+            ':image' => $this->image,
+            ':name' => $this->name,
+            ':about' => $this->about
+        ]);
+
+        return $succes;
     }
 
     public function countGamesPerPublisher() {
@@ -40,6 +57,7 @@ class Publisher extends BaseModel{
         $pdo_statement= $db->prepare($sql);
         $pdo_statement->execute();
         $results = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        
         
         return self::castToModel($results);
     }

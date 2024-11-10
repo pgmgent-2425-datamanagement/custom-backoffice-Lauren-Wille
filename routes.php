@@ -25,6 +25,8 @@ $router->get('/publishers', 'PublisherController@all');
 $router->get('/publishers/edit/(\d+)', 'PublisherController@edit');
 $router->post('/publishers/edit/(\d+)', 'PublisherController@edit');
 $router->get('/publishers/delete/(\d+)', 'PublisherController@delete');
+$router->get('/publishers/add', 'PublisherController@add');
+$router->post('/publishers/add', 'PublisherController@save');
 
 
 /* $router->get('/test', function () {

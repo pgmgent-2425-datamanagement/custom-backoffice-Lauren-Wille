@@ -26,6 +26,7 @@
         $names[] = $publisher->name;
         $values[] = $publisher->game_count;
     }
+
     $namesJson = json_encode($names);
     $valuesJson = json_encode($values);
 
@@ -49,8 +50,8 @@
     // ---------- chart 1 ----------
     const chartOne = document.getElementById('chartOne');
 
-    console.log(<?php $namesJson; ?>);
-    console.log(<?php  $valuesJson; ?>);
+/*     console.log(<?php $namesJson; ?>);
+    console.log(<?php  $valuesJson; ?>); */
 
     new Chart(chartOne, {
         type: 'bar',

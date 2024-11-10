@@ -1,3 +1,7 @@
+<form action="/publishers/add">
+    <input type="submit" value="Add publisher" class="btn btn-primary">
+</form>
+
 <table>
     <tr>
         <th></th>

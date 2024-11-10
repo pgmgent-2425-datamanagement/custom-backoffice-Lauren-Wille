@@ -36,7 +36,7 @@ class GameController extends BaseController {
                  
         }
 
-
+ 
         if(isset($_POST['title'])) {
             if(isset($uuid))
                 {

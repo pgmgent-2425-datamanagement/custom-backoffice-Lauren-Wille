@@ -16,15 +16,33 @@ class PublisherController extends BaseController {
         ]);
     }
 
-    public static function edit ($id) {
+    public static function edit ($id) { 
         
         $publisher = Publisher::find($id);
 
+        if(isset($_FILES["image"]))
+        {
+            $name = $_FILES['image']['name'];
+            $tmp = $_FILES['image']['tmp_name'];
+            $to_folder = BASE_DIR . "/public/images/publishers/";
+
+            $uuid = uniqid() . '-' . $name;
+
+            if (move_uploaded_file($tmp, $to_folder . $uuid)) {
+                $publisher->image = $uuid;
+            }
+                 
+        }
+
         if(isset($_POST['name'])) {
-            print_r($_POST);
+            if(isset($uuid))
+            {
+                $publisher->image = $uuid;
+            }
+
             $publisher->name = $_POST['name'];
             $publisher->about = $_POST['about'];
-            $publisher->save();
+            $publisher->update();
         }
 
         //load view
@@ -41,4 +59,38 @@ class PublisherController extends BaseController {
     }
 
 
+    public static function add () {
+        //load view
+        self::loadView('/publishers/add', [
+            'title' => 'Add publisher'
+        ]);
+    }
+
+    public static function save() {
+        $publisher = new Publisher();
+
+        $name = $_FILES['image']['name'];
+        $tmp = $_FILES['image']['tmp_name'];
+
+        $to_folder = BASE_DIR . "/public/images/publishers/";
+
+        $uuid = uniqid() . '-' . $name;
+
+        move_uploaded_file($tmp, $to_folder . $uuid);
+     
+        $publisher->image = $uuid;
+        $publisher->name = $_POST['name'];
+        $publisher->about = $_POST['about'];
+        
+        $succes = $publisher->save();
+
+
+        if($succes){
+            self::redirect('/publishers'); 
+        }
+        else {
+            echo 'fout';
+        }
+
+    }
 }  

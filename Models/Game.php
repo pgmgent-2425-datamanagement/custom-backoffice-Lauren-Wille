@@ -28,7 +28,7 @@ class Game extends BaseModel {
         
         return self::castToModel($db_items);
     }
-
+ 
     public function update() {
         $sql = "UPDATE games SET image = :image, title = :title, release_date = :release_date, price = :price, developer = :developer, summary = :summary, publisher_id = :publisher_id WHERE id = :id";
 
