@@ -1,5 +1,12 @@
 <tr>
-    <td><img class="img-thumbnail img-circle  img-me" src="/images/<?= $game->image;?>" alt="<?= $game->title;?>"></td>
+    <td>
+        <img 
+            class="img-thumbnail img-circle img-me" 
+            src="/images/<?= file_exists(BASE_DIR . '/public/images/' . $game->image) ? $game->image : 'placeholder.jpeg'; ?>" 
+            alt="<?= htmlspecialchars($game->title); ?>"
+        >
+    </td>
+
     <td><?= $game->title;?></td>
     <td><?= $game->release_date;?></td>
     <td><?= $game->price;?></td>

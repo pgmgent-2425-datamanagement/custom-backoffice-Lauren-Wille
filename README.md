@@ -5,6 +5,8 @@ Indien je een publisher verwijderd, komt automatisch bij de gelinkte games 'publ
 
 Fotos editen en toevoegen kan je bij de games. 
 
+Er is ook een filemanager beschikbaar om files te verwijderen.
+
 -------------------------------------------------------
 Lauren Wille
 *Student Graduaat Programmeren*
