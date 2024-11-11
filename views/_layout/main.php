@@ -8,15 +8,20 @@
     <link rel="stylesheet" href="/css/main.css?v=<?php if( $_ENV['DEV_MODE'] == "true" ) { echo time(); }; ?>">
 </head>
 <body>
-    <div class="brand">Back office</div>
 
-    <nav>
-        <a href="/">Home</a>
-        <a href="/games">Games</a>
-        <a href="/users">Users</a>
-        <a href="/publishers">Publishers</a>
-        <a href="/filemanager">Filemanager</a>
-    </nav>
+    <header>
+        <div class="brand">Back office</div>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">Games</a></li>
+                <li><a href="/users">Users</a></li>
+                <li><a href="/publishers">Publishers</a></li>
+                <li><a href="/filemanager">Filemanager</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <?= $content; ?>

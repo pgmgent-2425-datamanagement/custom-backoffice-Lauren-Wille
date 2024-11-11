@@ -14,5 +14,5 @@
         <input type="text" class="form-control" id="about" name="about">
     </div>
 
-    <input type="submit" value="Add publisher" class="btn btn-primary">
+    <input type="submit" value="Add publisher" class="btn btn-primary add-btn">
 </form>

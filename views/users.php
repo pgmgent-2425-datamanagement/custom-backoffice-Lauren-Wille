@@ -1,5 +1,5 @@
 <form action="/users/add">
-    <input type="submit" value="Add user" class="btn btn-primary">
+    <input type="submit" value="Add user" class="btn btn-primary add-btn">
 </form>
 
 <table>

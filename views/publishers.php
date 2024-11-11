@@ -1,5 +1,5 @@
 <form action="/publishers/add">
-    <input type="submit" value="Add publisher" class="btn btn-primary">
+    <input type="submit" value="Add publisher" class="btn btn-primary add-btn">
 </form>
 
 <table>

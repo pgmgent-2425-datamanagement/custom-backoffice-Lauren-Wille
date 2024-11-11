@@ -25,7 +25,7 @@
         <input type="text" class="form-control" id="bio" name="bio">
     </div>
 
-    <input type="submit" value="Add user" class="btn btn-primary">
+    <input type="submit" value="Add user" class="btn btn-primary add-btn">
 </form>
 
 <script>

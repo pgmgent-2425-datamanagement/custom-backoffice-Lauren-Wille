@@ -1,5 +1,5 @@
 <form action="/games/add">
-    <input type="submit" value="Add game" class="btn btn-primary">
+    <input  type="submit" value="Add game" class="btn btn-primary add-btn">
 </form>
 
 
