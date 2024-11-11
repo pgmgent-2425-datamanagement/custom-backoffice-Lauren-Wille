@@ -8,12 +8,17 @@ use Publisher;
 class GameController extends BaseController {
 
     public static function all () {
-        $games = Game::allWithPublisher();
+        
+        $search = $_GET['search'] ?? '';
 
+        $games = Game::search($search);
+
+        
         
         self::loadView('/games', [
             'title' => 'Games',
             'games' => $games,
+            'search' => $search
         ]);
 
     }

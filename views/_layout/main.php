@@ -21,7 +21,7 @@
                 <li><a href="/filemanager">Filemanager</a></li>
             </ul>
         </nav>
-    </header>
+    </header> 
 
     <main>
         <?= $content; ?>

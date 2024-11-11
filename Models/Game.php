@@ -94,4 +94,33 @@ class Game extends BaseModel {
     
         return self::castToModel($results);
     }
+
+    protected function search($search)
+    {
+        global $db;
+
+        $sql = 'SELECT games.id AS game_id,
+        games.title,
+        games.release_date,
+        games.price,
+        games.developer,
+        games.summary,
+        games.image,
+        games.average_rating, 
+        publishers.name, 
+        publishers.id AS publisher_id 
+        FROM `' . $this->table . '` INNER JOIN publishers on publishers.id = publisher_id
+        WHERE games.title LIKE :search OR games.developer LIKE :search
+        ';
+
+        $statement = $db->prepare($sql);
+        $statement->execute([
+            ':search' => '%' . $search . '%'
+        ]);
+
+        $results = $statement->fetchAll();
+
+        return self::castToModel($results);
+    }
+    
 }

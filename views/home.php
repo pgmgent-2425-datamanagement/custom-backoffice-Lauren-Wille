@@ -60,7 +60,8 @@
         datasets: [{
             label: '# of Games',
             data: <?php echo $valuesJson; ?>,  
-            borderWidth: 1
+            borderWidth: 1,
+            borderColor: '#ac4bdd',
         }]
         },
         options: {
@@ -85,7 +86,7 @@
         datasets: [{
             label: '# of monthly game releases',
             data: <?php echo $count_releasesJson; ?>,  
-            borderColor: '#dc3545',
+            borderColor: '#ac4bdd',
             fill: false
         }]
         },
